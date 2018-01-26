@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:body>
+	****************
+	<h:link value = "page d'inscription" outcome="index" ></h:link>
+	****************
+	<h:link value = "liste d'utilisateurs" outcome="list-users"></h:link>
+	****************
+	<h:link value = "liste des chansons" outcome="list-tracks"></h:link>
+	
+	
+    <h:form>
+     <fieldset>
+         	<legend>Ajouter utilisateur</legend>
+        <div>
+            <h:outputLabel value="Email: "/>
+            <h:inputText id="Email" value="#{userController.user.email}" required="true" binding="#{varName}">
+            </h:inputText>
+            <h:message for="Email"/>
+        </div>
+        <div>
+            <h:outputLabel value="Password: "/>
+            <h:inputText id="Password" value="#{userController.user.password}" required="true">
+               <!--  <f:attribute name="attributeName" value="#{varName}"/> -->
+            </h:inputText>
+        </div>
+        <h:commandButton value="Add" action="#{userController.add}"/>
+      </fieldset>
+    </h:form>
+    <h:form>
+     <fieldset>
+         	<legend>Ajouter une chanson</legend>
+        <div>
+            <h:outputLabel value="titre de la chanson: "/>
+            <h:inputText id="name" value="#{trackController.track.title}" required="true" >
+            </h:inputText>
+          
+        </div>
+        <div>
+            <h:outputLabel value="Artiste :  "/>
+            <h:inputText id="artist" value="#{trackController.track.artist}" required="true">
+            </h:inputText>
+        </div>
+        <h:commandButton value="Add" action="#{trackController.add}"/>
+      </fieldset>
+    </h:form>
+</h:body>
+</html>
